@@ -62,13 +62,16 @@ module.exports = function(app) {
         
         statusMsg = 'Variation set to ' + variation;
 
+	/* Convert to radians, with hardcoded value of pi */
+        let variation_rad = variation * ( 3.141592653589793 / 180 )
+
  	/* Insert value */
         app.handleMessage(plugin.id, {
            updates: [
            {
               values: [ {
              	path: options.path,
-               	value: variation
+               	value: variation_rad
               }]
            }]
         })
